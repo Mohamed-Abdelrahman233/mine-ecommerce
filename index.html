@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Store</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <h1>My Store</h1>
+    </header>
+
+    <!-- Controls / Filters -->
+    <section class="controls-card">
+      <div class="filters-row">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search for products..."
+        />
+        <select id="categorySelect">
+          <option value="">All Categories</option>
+        </select>
+        <input
+          type="number"
+          id="minPriceInput"
+          placeholder="Min Price"
+          min="0"
+          step="0.01"
+        />
+        <input
+          type="number"
+          id="maxPriceInput"
+          placeholder="Max Price"
+          min="0"
+          step="0.01"
+        />
+        <button id="applyFiltersBtn" class="btn btn-green">
+          Apply Filters
+        </button>
+      </div>
+      <div class="sort-row" style="text-align: center; margin-top: 20px">
+        <select
+          id="sortSelect"
+          style="
+            width: 200px !important;
+            display: inline-block;
+            padding: 8px;
+            border-radius: 5px;
+          "
+        >
+          <option value="">Sort By...</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="rate-asc">Rating: Low to High</option>
+          <option value="rate-desc">Rating: High to Low</option>
+          <option value="name-asc">Name: A to Z</option>
+          <option value="name-desc">Name: Z to A</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Shopping Cart -->
+    <section class="cart-card">
+      <h2>Shopping Cart</h2>
+      <ul id="cartList" class="cart-list"></ul>
+      <div class="cart-summary">
+        <p>Total Quantity: <strong id="totalQuantity">0</strong></p>
+        <p class="total-price">
+          Total Price: $<span id="totalPrice">0.00</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-grid" id="productsGrid"></section>
+
+    <!-- Pagination -->
+    <div
+      class="pagination"
+      id="pagination"
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+      "
+    >
+      <button id="prevBtn" class="btn btn-page">Previous</button>
+      <!-- الحاوية اللي هيترسم فيها مربعات الأرقام -->
+      <div
+        id="pageNumbers"
+        style="
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          margin: 0 10px;
+        "
+      ></div>
+      <button id="nextBtn" class="btn btn-page">Next</button>
+    </div>
+
+    <!-- Modal (Popup) بتاع تفاصيل المنتج -->
+    <div id="productModal" class="modal-overlay">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div id="modalBody"></div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
